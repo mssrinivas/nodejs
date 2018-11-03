@@ -60,13 +60,19 @@ var db_user = (process.env.mongodb_user || "cmpe281" ) ;
 var db_pwd  = (process.env.mongodb_pwd  || "cmpe281" ) ;
 var db_name = (process.env.mongodb_name || "mssrinivas-cmpe281" ) ;
  */
-
+//test-collection
+var db_host = (process.env.mongodb_host || "ds231133.mlab.com" ) ;
+var db_port = (process.env.mongodb_port || "31133" ) ;
+var db_user = (process.env.mongodb_user || "cmpe281" ) ;
+var db_pwd  = (process.env.mongodb_pwd  || "cmpe281" ) ;
+var db_name = (process.env.mongodb_name || "mssrinivas-cmpe281" ) ;
+/*
 var db_host = (process.env.mongodb_host || "172.31.18.26" ) ;
 var db_port = (process.env.mongodb_port || "27017" ) ;
 var db_user = (process.env.mongodb_user || "cmpe281" ) ;
 var db_pwd  = (process.env.mongodb_pwd  || "cmpe281" ) ;
 var db_name = (process.env.mongodb_name || "cmpe281" ) ; 
-
+*/
 var db = new DB(db_name,
                 new DB_Server( db_host, db_port,
                             { auto_reconnect: true,
@@ -144,7 +150,7 @@ var error = function( req, res, msg, ts ) {
 
 var page = function( req, res, state, ts ) {
   
-    db.collection('gumball', function(err, collection) {
+    db.collection('test-collection', function(err, collection) {
         collection.find( {serialNumber: '1234998871109'}).toArray( function(err, results) {
 
                 var data = results[0] ;
@@ -182,7 +188,7 @@ var page = function( req, res, state, ts ) {
 
 var order = function( req, res, state, ts ) {
 
-  db.collection('gumball', function(err, collection) {
+  db.collection('test-collection', function(err, collection) {
 
         collection.find( {serialNumber: '1234998871109'}).toArray( function(err, results) {
 
