@@ -138,7 +138,7 @@ var error = function( req, res, msg, ts ) {
     result.hash = hash ;
     result.state = state ;
 
-    res.render('test-collection', {
+    res.render('gumball', {
         state: result.state,
         ts: result.ts,
         hash: result.hash,
@@ -172,7 +172,7 @@ var page = function( req, res, state, ts ) {
                 result.hash = hash ;
                 result.state = state ;
 
-                res.render('test-collection', {
+                res.render('gumball', {
                     state: result.state,
                     ts: result.ts,
                     hash: result.hash,
